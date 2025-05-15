@@ -47,7 +47,13 @@ void callback(u_char *user,const struct pcap_pkthdr *pkthdr, const u_char *packe
     // }
 }
 
-
+/*
+    @param
+        device: device name
+    @brief
+        A thread function for *device* to capture packets
+    
+*/
 void * package_recv(void* device){
     //open the device
     

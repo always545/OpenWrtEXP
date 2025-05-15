@@ -13,9 +13,11 @@
 /*
     @param
          ifname: device name
+    @param
          Buffer : buffer to store MAC address
     @return 
         None
+    @brief
     A function to get the Mac address of a network interface.
 */
 void get_mac_address(const char *ifname,char *Buffer) {
@@ -42,7 +44,19 @@ void get_mac_address(const char *ifname,char *Buffer) {
 /*
     @param
         ifname: device name
+
+    @param
         IPV4/6Buffer : Buffer to store IPV4 address,default NULL
+    
+    @return 
+        None
+    
+    @brief
+    A function to get the IP address of a network interface.
+    by using pointer IPV4Buffer and IPV6Buffer
+    @note
+        IPV4Buffer and IPV6Buffer should be allocated with enough size
+        to store the IP address.
 */
 void get_ip_addresses(const char *ifname, char *IPV4Buffer,char *IPV6Buffer) {
     struct ifaddrs *ifaddr, *ifa;
