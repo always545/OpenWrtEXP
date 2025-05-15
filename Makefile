@@ -8,3 +8,9 @@ wrt:
 
 recive:
 	$(CC) $(static) Recive.c $(PCAPATH) $(THREADPATH) -o rcv.out
+
+address:
+	$(CC) -c address.c -o address.o
+
+test:
+	$(CC) $(static) test.c address.o -o test.ot

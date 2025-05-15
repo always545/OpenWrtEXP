@@ -1,1 +1,4 @@
 ./vscode
+*.ot
+test.c
+*.o
