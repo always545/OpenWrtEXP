@@ -4,7 +4,9 @@
 #include <stdlib.h>
 #include <signal.h>
 
-
+/*
+args for callback function
+*/
 typedef struct CALLBACKARGS{
     pcap_if_t *device;
     pcap_t *handle;
@@ -20,7 +22,7 @@ void handle_sigint(int sig) {
 /*
 how to sum the packet length in different threads? if i dont want store funtion callback in the
 main file. use other file to store the callback function instead?
---> use device "any" to capture all packes of all devices
+--> use device "any" to capture all packets of all devices
 
 */
 
