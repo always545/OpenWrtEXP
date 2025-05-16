@@ -1,4 +1,4 @@
-./vscode
+./.vscode
 *.ot
 test.c
 *.o
