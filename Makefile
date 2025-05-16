@@ -13,4 +13,4 @@ address:
 	$(CC) -c address.c -o address.o
 
 test:
-	$(CC) $(static) test.c address.o -o test.ot
+	$(CC) $(static) test.c address.c -o testot/test.ot

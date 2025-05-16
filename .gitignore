@@ -2,3 +2,4 @@
 *.ot
 test.c
 *.o
+./testot
