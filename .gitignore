@@ -2,3 +2,4 @@
 test.c
 *.o
 testot/
+*.out
