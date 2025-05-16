@@ -14,3 +14,6 @@ address:
 
 test:
 	$(CC) $(static) test.c address.c -o testot/test.ot
+# how to debug?
+# by adding switch -g
+#example : gcc filename.c -o outputname -g

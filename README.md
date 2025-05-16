@@ -12,5 +12,9 @@ address.h和address.c文件如何使用？
 
 要不要把相关的文件编译成库呢？-> 麻烦
 
+# 如何使用配置文件?
+使用到的github仓库：Inih
 
-使用到的github仓库：Ini.h<可能>
+感谢inih仓库
+
+Thanks for repo inih
