@@ -3,6 +3,10 @@ static = -static
 filename = res.out
 PCAPATH = -lpcap
 THREADPATH = -lpthread
+MUSLCC = musl-gcc
+
+INCLUDE = -I/usr/local/include
+
 wrt:
 	$(CC) $(static) wrt.c $(PCAPATH) -o res.out
 
@@ -17,3 +21,6 @@ test:
 # how to debug?
 # by adding switch -g
 #example : gcc filename.c -o outputname -g
+
+muslpacket:
+	$(MUSLCC) -static packetcatch.c $(INCLUDE) -L/usr/local/lib -lpcap -o packet1.out

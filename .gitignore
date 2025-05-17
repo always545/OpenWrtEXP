@@ -3,3 +3,5 @@ test.c
 *.o
 testot/
 *.out
+*.py
+*.so
