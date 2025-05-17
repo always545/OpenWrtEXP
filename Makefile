@@ -22,5 +22,5 @@ test:
 # by adding switch -g
 #example : gcc filename.c -o outputname -g
 
-muslpacket:
-	$(MUSLCC) -static packetcatch.c $(INCLUDE) -L/usr/local/lib -lpcap -o packet1.out
+#how to make on openwrt?
+#gcc filename -I/usr/local/include -lpcap -o outputname

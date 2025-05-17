@@ -21,3 +21,8 @@ Thanks for repo inih
 # 2025 5.16
 完成了以太网接收到ipv4和ipv6时打印源地址，目的地址。
 
+
+# 如何配置openwrt上的开发环境？
+
+自己下载bison源代码，libpcap源代码进行编译！！！
+
