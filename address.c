@@ -9,7 +9,7 @@
 #include <netinet/in.h>
 #include <ifaddrs.h>
 #include "hfiles/address.h"
-
+// get ip address and mac address
 /*
     @param
          ifname: device name

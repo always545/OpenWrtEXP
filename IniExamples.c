@@ -3,6 +3,10 @@
 #include "hfiles/ini.h"
 #include <string.h>
 #include <stdlib.h>
+
+// parse ini config file
+
+
 typedef struct {
     char* name;
     int age;
