@@ -3,13 +3,14 @@
 #include <pthread.h>
 #include <stdlib.h>
 #include <signal.h>
-
+#include <string.h>
 /*
 args for callback function
 */
 typedef struct CALLBACKARGS{
     pcap_if_t *device;
     pcap_t *handle;
+    double totalbytes;
 } CALLBACKARGS;
 
 
@@ -34,6 +35,8 @@ void callback(u_char *user,const struct pcap_pkthdr *pkthdr, const u_char *packe
     printf("Device name: %s\n",args->device->name);
     //print the packet length
     printf("Packet length: %d\n",pkthdr->len);
+    args->totalbytes += pkthdr->len;
+    printf("Flow on Device %s \t total flow: %f MB", args->device,args->totalbytes/(1024*1024));
     //print the packet data
     // for(int i = 0; i < pkthdr->len; i++){
     //     printf("%02x ",packet[i]);
@@ -71,6 +74,7 @@ void * package_recv(void* device){
     CALLBACKARGS *args = (CALLBACKARGS*)malloc(sizeof(CALLBACKARGS));
     args->device = (pcap_if_t*)device;
     args->handle = handle;
+    args->totalbytes = 0;
     
     //start capturing
     printf("Listening on %s...\n",((pcap_if_t*)device)->name);
@@ -115,10 +119,11 @@ int main(){
     count = 0;
     // create thread
     while (devices){
-        if(devices->name == "any"){
+       
+            if(strcmp(devices->name,"docker0" ) == 0 || strcmp(devices->name,"any") == 0 ){
             devices = devices->next;
             continue;
-        }
+            }
 
         if (pthread_create(&thread[count],NULL,package_recv,(void *)devices) != 0)
             {   
@@ -138,7 +143,7 @@ int main(){
             for (int j = 0; j < 1000; j++)
                  ;
         }
-    handle_sigint(2);
+   // handle_sigint(2);
     //wait for all threads to finish
     for (int i = 0; i < count; i++)
         {   printf("Waiting for thread %d to finish\n",i);
